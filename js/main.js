@@ -8,7 +8,9 @@ const secretKey = 'tu_clave_secreta'; // Clave secreta para firmar el JWT
 const server = http.createServer((req, res) => {
   if (req.method === 'GET' && req.url === '/') {
     // Mostrar el formulario de inicio de sesión
-    res.writeHead(200, { 'Content-Type': 'text/html' });
+    res.writeHead(200, {
+      'Content-Type': 'text/html'
+    });
     res.end(`
     <html>
     <head>
@@ -100,16 +102,26 @@ const server = http.createServer((req, res) => {
         };
         const token = jwt.sign(tokenPayload, secretKey);
 
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ success: true, jwt: token }));
+        res.writeHead(200, {
+          'Content-Type': 'application/json'
+        });
+        res.end(JSON.stringify({
+          success: true,
+          jwt: token
+        }));
       } else {
-        res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ success: false }));
+        res.writeHead(200, {
+          'Content-Type': 'application/json'
+        });
+        res.end(JSON.stringify({
+          success: false
+        }));
       }
     });
-      }
-     else {
-    res.writeHead(404, { 'Content-Type': 'text/plain' });
+  } else {
+    res.writeHead(404, {
+      'Content-Type': 'text/plain'
+    });
     res.end('404 - Not Found');
   }
 });
