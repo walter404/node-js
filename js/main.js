@@ -1,6 +1,8 @@
 const http = require('http');
 const jwt = require('jsonwebtoken');
 
+const PORT = process.env.PORT || 5000;
+
 const secretKey = 'tu_clave_secreta'; // Clave secreta para firmar el JWT
 
 const server = http.createServer((req, res) => {
@@ -112,6 +114,6 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(3000, () => {
+server.listen(PORT, () => {
   console.log('Servidor escuchando en el puerto 3000');
 });
